@@ -1,0 +1,7 @@
+D:\Дима проекты\iJunior\Напильник\PaymentSystem\bin\Debug\PaymentSystem.exe.config
+D:\Дима проекты\iJunior\Напильник\PaymentSystem\bin\Debug\PaymentSystem.exe
+D:\Дима проекты\iJunior\Напильник\PaymentSystem\bin\Debug\PaymentSystem.pdb
+D:\Дима проекты\iJunior\Напильник\PaymentSystem\obj\Debug\PaymentSystem.csproj.AssemblyReference.cache
+D:\Дима проекты\iJunior\Напильник\PaymentSystem\obj\Debug\PaymentSystem.csproj.CoreCompileInputs.cache
+D:\Дима проекты\iJunior\Напильник\PaymentSystem\obj\Debug\PaymentSystem.exe
+D:\Дима проекты\iJunior\Напильник\PaymentSystem\obj\Debug\PaymentSystem.pdb
