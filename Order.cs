@@ -2,9 +2,13 @@
 {
     class Order
     {
-        public readonly int Id;
-        public readonly int Amount;
+        public int Id { get; private set; }
+        public int Amount { get; private set; }
 
-        public Order(int id, int amount) => (Id, Amount) = (id, amount);
+        public Order(int id, int amount)
+        {
+            Id = id;
+            Amount = amount;
+        }
     }
 }

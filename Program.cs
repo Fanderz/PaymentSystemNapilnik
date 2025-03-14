@@ -5,15 +5,15 @@ namespace PaymentSystem
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Console.OutputEncoding = Encoding.Default; 
 
             Order order = new Order(1,12000);
 
-            PaySystem1 paySystem1 = new PaySystem1();
-            PaySystem2 paySystem2 = new PaySystem2();
-            PaySystem3 paySystem3 = new PaySystem3();
+            PaySystem1 paySystem1 = new PaySystem1(new HasherMD5());
+            PaySystem2 paySystem2 = new PaySystem2(new HasherMD5());
+            PaySystem3 paySystem3 = new PaySystem3(new HasherSHA1());
 
             Console.WriteLine(paySystem1.GetPayingLink(order));
             Console.WriteLine(paySystem2.GetPayingLink(order));

@@ -9,14 +9,19 @@ namespace PaymentSystem
     {
         private int _secretKey = 123;
 
+        private IHashComputer _hasher;
+
+        public PaySystem3(IHashComputer hasher)
+        {
+            _hasher = hasher;
+        }
+
         public string GetPayingLink(Order order)
         {
             if (order == null)
                 throw new ArgumentNullException();
 
-            string hash = Convert.ToBase64String(SHA1.Create().ComputeHash(BitConverter.GetBytes(order.Amount + order.Id + _secretKey).Reverse().ToArray()));
-
-            return new StringBuilder($"system3.com/pay?amount={order.Amount}&curency=RUB&hash={hash}").ToString();
+            return new StringBuilder($"system3.com/pay?amount={order.Amount}&curency=RUB&hash={_hasher.ComputeHash(order.Amount + order.Id + _secretKey)}").ToString();
         }
     }
 }

@@ -7,14 +7,19 @@ namespace PaymentSystem
 {
     class PaySystem2 : IPaymentSystem
     {
+        private IHashComputer _hashComputer;
+
+        public PaySystem2(IHashComputer hashComputer)
+        {
+            _hashComputer = hashComputer;
+        }
+
         public string GetPayingLink(Order order)
         {
             if (order == null)
                 throw new ArgumentNullException();
 
-            string hash = Convert.ToBase64String(MD5.Create().ComputeHash(BitConverter.GetBytes(order.Id + order.Amount).Reverse().ToArray()));
-
-            return new StringBuilder($"order.system2.ru/pay?hash={hash}").ToString();
+            return new StringBuilder($"order.system2.ru/pay?hash={_hashComputer.ComputeHash(order.Id + order.Amount)}").ToString();
         }
     }
 }

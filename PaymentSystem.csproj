@@ -43,6 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HasherMD5.cs" />
+    <Compile Include="HasherSHA1.cs" />
+    <Compile Include="IHashComputer.cs" />
     <Compile Include="IPaymentSystem.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="PaySystem1.cs" />
