@@ -1,17 +1,19 @@
 ﻿using System;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
 
 namespace PaymentSystem
 {
     class PaySystem2 : IPaymentSystem
     {
-        private IHashComputer _hashComputer;
+        private string _paySystemLink = "order.system2.ru/pay?hash=";
 
-        public PaySystem2(IHashComputer hashComputer)
+        private IHashComputer _hasher;
+
+        public PaySystem2(IHashComputer hasher)
         {
-            _hashComputer = hashComputer;
+            if (hasher == null)
+                throw new ArgumentNullException();
+
+            _hasher = hasher;
         }
 
         public string GetPayingLink(Order order)
@@ -19,7 +21,13 @@ namespace PaymentSystem
             if (order == null)
                 throw new ArgumentNullException();
 
-            return new StringBuilder($"order.system2.ru/pay?hash={_hashComputer.ComputeHash(order.Id + order.Amount)}").ToString();
+            if (order.Amount < 0)
+                throw new ArgumentOutOfRangeException();
+
+            if (order.Id <= 0)
+                throw new ArgumentOutOfRangeException();
+
+            return string.Format($"{_paySystemLink}{_hasher.ComputeHash(order.Id + order.Amount)}").ToString();
         }
     }
 }

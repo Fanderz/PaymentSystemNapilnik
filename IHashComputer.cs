@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace PaymentSystem
+﻿namespace PaymentSystem
 {
     interface IHashComputer
     {

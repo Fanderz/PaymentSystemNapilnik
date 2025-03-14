@@ -5,3 +5,10 @@ D:\Дима проекты\iJunior\Напильник\PaymentSystem\obj\Debug\Pa
 D:\Дима проекты\iJunior\Напильник\PaymentSystem\obj\Debug\PaymentSystem.csproj.CoreCompileInputs.cache
 D:\Дима проекты\iJunior\Напильник\PaymentSystem\obj\Debug\PaymentSystem.exe
 D:\Дима проекты\iJunior\Напильник\PaymentSystem\obj\Debug\PaymentSystem.pdb
+D:\GitHub\PaymentSystemNapilnik\bin\Debug\PaymentSystem.exe.config
+D:\GitHub\PaymentSystemNapilnik\bin\Debug\PaymentSystem.exe
+D:\GitHub\PaymentSystemNapilnik\bin\Debug\PaymentSystem.pdb
+D:\GitHub\PaymentSystemNapilnik\obj\Debug\PaymentSystem.csproj.AssemblyReference.cache
+D:\GitHub\PaymentSystemNapilnik\obj\Debug\PaymentSystem.csproj.CoreCompileInputs.cache
+D:\GitHub\PaymentSystemNapilnik\obj\Debug\PaymentSystem.exe
+D:\GitHub\PaymentSystemNapilnik\obj\Debug\PaymentSystem.pdb

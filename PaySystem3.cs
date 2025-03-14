@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
 
 namespace PaymentSystem
 {
@@ -9,10 +6,17 @@ namespace PaymentSystem
     {
         private int _secretKey = 123;
 
+        private string _paySystemLink = "system3.com/pay?amount=";
+        private string _currencyType = "&curency=RUB&";
+        private string _hashLink = "hash=";
+
         private IHashComputer _hasher;
 
         public PaySystem3(IHashComputer hasher)
         {
+            if (hasher == null)
+                throw new ArgumentNullException();
+
             _hasher = hasher;
         }
 
@@ -21,7 +25,13 @@ namespace PaymentSystem
             if (order == null)
                 throw new ArgumentNullException();
 
-            return new StringBuilder($"system3.com/pay?amount={order.Amount}&curency=RUB&hash={_hasher.ComputeHash(order.Amount + order.Id + _secretKey)}").ToString();
+            if (order.Amount < 0)
+                throw new ArgumentOutOfRangeException();
+
+            if (order.Id <= 0)
+                throw new ArgumentOutOfRangeException();
+
+            return string.Format($"{_paySystemLink}{order.Amount}{_currencyType}{_hashLink}{_hasher.ComputeHash(order.Amount + order.Id + _secretKey)}").ToString();
         }
     }
 }
